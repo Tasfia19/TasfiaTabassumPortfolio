@@ -2,42 +2,42 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
-const experiences = [
+const educations = [
   {
-    company: "Abexita IT",
-    role: "Software Engineer",
-    period: "Feb 2025 - Present",
-    description: "Developed and maintained production-level web applications using React, Next.js, and TypeScript. Implemented responsive designs and modular UI components.",
-    details: ["Next.js architecture", "Component-based design", "Authentication flows", "Form handling & validation"],
+    institution: "International Islamic University Chittagong",
+    degree: "B.Sc. in Computer Science and Engineering (CSE)",
+    period: "2020 - 2024",
+    description: "Specialized in Computer Science & Engineering. Developed deep expertise in software engineering, core data structures, algorithms, and web technologies.",
+    details: ["Algorithms & Complexity", "Database Systems", "Software Engineering", "CGPA: 3.40"],
   },
   {
-    company: "TNC Global Pvt Ltd",
-    role: "Junior Software Engineer",
-    period: "Oct 2024 - Jan 2025",
-    description: "Built reusable, modular UI components and maintained front-end codebases for client projects.",
-    details: ["React & JavaScript", "Modular component building", "Cross-team collaboration"],
+    institution: "Bangladesh Mohila Samiti School & College",
+    degree: "Higher Secondary Certificate (HSC)",
+    period: "2016 - 2018",
+    description: "Completed higher secondary education in the Science group with core focuses on Mathematics, Physics, Chemistry, and ICT.",
+    details: ["Science Group", "ICT & Mathematics Focus", "GPA: 4.08"],
   },
   {
-    company: "Spring Rain Pvt Ltd",
-    role: "Career Development Program (CDP)",
-    period: "Jan 2024 - Aug 2024",
-    description: "Gained hands-on experience in full-stack development and cloud technologies during an intensive development program.",
-    details: ["Full-stack fundamentals", "Teamwork & leadership", "Agile methodologies"],
+    institution: "City Govt Girls High School",
+    degree: "Secondary School Certificate (SSC)",
+    period: "2014 - 2016",
+    description: "Completed primary secondary education in the Science group.",
+    details: ["Science Group", "GPA: 5.00"],
   },
 ];
 
-export const ExperienceTimeline = () => {
+export const EducationTimeline = () => {
   return (
-    <section id="experience" className="py-12 md:py-24 px-6 max-w-[1440px] mx-auto">
+    <section id="education" className="py-12 md:py-24 px-6 max-w-[1440px] mx-auto">
       <h2 className="text-3xl font-bold mb-16 flex items-center justify-center gap-2">
-        <Briefcase className="text-accent w-8 h-8 animate-pulse" /> Work Experience
+        <GraduationCap className="text-accent w-8 h-8 animate-pulse" /> Educational Qualifications
       </h2>
 
       {/* Centered Timeline Wrapper */}
       <div className="relative border-l border-slate-800 max-w-3xl xl:max-w-4xl mx-auto pl-8 md:pl-10">
-        {experiences.map((exp, index) => (
+        {educations.map((edu, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, x: -20 }}
@@ -51,20 +51,20 @@ export const ExperienceTimeline = () => {
             
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
               <div>
-                <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors">{exp.role}</h3>
-                <p className="text-accent font-medium group-hover:text-white transition-colors">{exp.company}</p>
+                <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors">{edu.degree}</h3>
+                <p className="text-accent font-medium group-hover:text-white transition-colors">{edu.institution}</p>
               </div>
               <span className="text-sm font-mono text-slate-500 bg-slate-900 px-3 py-1 rounded-full border border-slate-800 w-fit h-fit">
-                {exp.period}
+                {edu.period}
               </span>
             </div>
             
             <p className="text-slate-400 mb-4 leading-relaxed max-w-2xl">
-              {exp.description}
+              {edu.description}
             </p>
             
             <div className="flex flex-wrap gap-2">
-              {exp.details.map((detail, i) => (
+              {edu.details.map((detail, i) => (
                 <span key={i} className="text-[11px] text-slate-300 bg-slate-800/50 px-2.5 py-1 rounded border border-slate-800 group-hover:border-slate-700 transition-colors">
                   {detail}
                 </span>

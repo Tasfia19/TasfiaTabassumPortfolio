@@ -74,3 +74,112 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
+
+/* Light Mode overrides */
+.light {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --accent: #0284c7;
+  --accent-glow: rgba(2, 132, 199, 0.15);
+}
+
+body.light {
+  background: var(--background) !important;
+  color: var(--foreground) !important;
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+.light .glass button,
+.light .glass a,
+.light .glass span,
+.light .glass p,
+.light .glass h3,
+.light .glass h4 {
+  color: #0f172a !important;
+}
+
+.light .text-gradient {
+  background: linear-gradient(to right, #0f172a, #475569) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+.light .text-slate-300 {
+  color: #1e293b !important;
+}
+
+.light .text-slate-200 {
+  color: #0f172a !important;
+}
+
+.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+.light .text-white {
+  color: #0f172a !important;
+}
+
+.light .bg-slate-900 {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+.light .bg-slate-950,
+.light .bg-slate-950\/40,
+.light .bg-slate-950\/80 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+.light .border-slate-800,
+.light .border-white\/5,
+.light .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+.light input,
+.light textarea {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  color: #0f172a !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.light button[type="submit"] {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+.light button[type="submit"]:hover {
+  background-color: #1e293b !important;
+}
+
+.light .group-hover\/item\:text-slate-200:hover {
+  color: #0f172a !important;
+}
+
+/* Custom Scrollbar for Light Mode */
+.light ::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

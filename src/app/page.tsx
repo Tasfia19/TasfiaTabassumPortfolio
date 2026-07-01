@@ -2,10 +2,14 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Terminal, User, Mail } from "lucide-react";
+import { ArrowRight, User, Mail, FileText } from "lucide-react";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
+import { EducationTimeline } from "@/components/EducationTimeline";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { SkillShowcase } from "@/components/SkillShowcase";
+import { AboutMe } from "@/components/AboutMe";
+import { ContactForm } from "@/components/ContactForm";
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/Icons";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,7 +39,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen">
       {/* Hero Section */}
-      <section id="about" className="relative pt-24 pb-12 md:pt-32 md:pb-24 overflow-hidden">
+      <section id="home" className="relative pt-24 pb-12 md:pt-32 md:pb-24 overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <motion.div
@@ -74,9 +78,20 @@ export default function Home() {
                   View My Projects
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </motion.a>
+
+                <motion.a
+                  href="https://drive.google.com/file/d/15S-X9ePSiGpb1AIHixCJgAYO17X45CNs/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="glass border border-white/10 hover:border-accent/30 text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 group cursor-pointer transition-colors"
+                >
+                  View Resume
+                  <FileText className="w-4 h-4" />
+                </motion.a>
                 
                 <div className="flex gap-6 items-center">
-                  <a href="#" className="text-slate-500 hover:text-white transition-colors" title="Workspace"><Terminal /></a>
                   <a 
                     href="https://drive.google.com/file/d/15S-X9ePSiGpb1AIHixCJgAYO17X45CNs/view?usp=sharing" 
                     target="_blank" 
@@ -138,13 +153,19 @@ export default function Home() {
              style={{ backgroundImage: "radial-gradient(#fff 1px, transparent 0)", backgroundSize: "40px 40px" }} />
       </section>
 
+      {/* About Me Section */}
+      <AboutMe />
+
       {/* Experience Section */}
       <ExperienceTimeline />
 
+      {/* Education Section */}
+      <EducationTimeline />
+
       {/* Skills Section */}
-      <div className="bg-slate-900/30 border-y border-white/5 py-8 md:py-12">
+      <div id="skills" className="bg-slate-900/30 border-y border-white/5 py-8 md:py-12">
         <div className="max-w-[1400px] mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-12 text-center text-gradient">Core Tech Stack</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-gradient">Core Tech Stack</h2>
           <SkillShowcase />
         </div>
       </div>
@@ -152,31 +173,79 @@ export default function Home() {
       {/* Projects Section */}
       <ProjectGrid />
 
-      {/* Footer / Contact */}
-      <footer id="contact" className="py-12 md:py-24 px-6 border-t border-white/5 bg-slate-950">
+      {/* Contact Section */}
+      <section id="contact" className="py-12 md:py-24 px-6 max-w-[1400px] mx-auto text-center border-t border-white/5">
         <div className="max-w-[1400px] mx-auto flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl"
+            className="max-w-2xl mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">Ready to build something <span className="accent-gradient">amazing?</span></h2>
-            <p className="text-slate-400 mb-12">
-              Currently open to new opportunities and interesting projects. Whether you have a question or just want to say hi, my inbox is always open.
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Get In <span className="accent-gradient">Touch</span></h2>
+            <p className="text-slate-400 max-w-lg mx-auto">
+              Ready to discuss a project, query, or just say hello? Fill out the form below and I will get back to you!
             </p>
-            <a 
-              href="mailto:tasfiabd0000@gmail.com"
-              className="glass px-10 py-4 rounded-full text-xl font-bold hover:bg-white hover:text-slate-950 transition-all flex items-center gap-4 mx-auto w-fit"
-            >
-              <Mail className="w-6 h-6" /> Say Hello
-            </a>
           </motion.div>
+          <ContactForm />
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 border-t border-white/5 bg-slate-950 text-slate-500 text-sm">
+        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           
-          <div className="mt-16 md:mt-24 pt-8 border-t border-white/5 w-full flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm">
-            <p>© 2026 Tasfia Tabassum. All rights reserved.</p>
-            <p className="flex items-center gap-2">Built with <span className="text-accent">Next.js</span> & <span className="text-accent">Framer Motion</span></p>
+          {/* Logo Name Initials on the Left */}
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-accent to-blue-500 flex items-center justify-center font-black text-slate-950 text-base tracking-tighter">
+              TT
+            </div>
+            <div className="text-left">
+              <span className="block font-bold text-white text-sm tracking-wide leading-none mb-1">
+                Tasfia Tabassum
+              </span>
+              <span className="text-xs text-slate-500">
+                Software Engineer
+              </span>
+            </div>
           </div>
+
+          {/* Copyright text */}
+          <div className="text-center md:text-left">
+            <p>© 2026 Tasfia Tabassum. All rights reserved.</p>
+          </div>
+
+          {/* Social Icons on the Right */}
+          <div className="flex items-center gap-4">
+            <a 
+              href="https://github.com/Tasfia19" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-2.5 bg-slate-900 border border-slate-800 rounded-xl text-slate-400 hover:text-accent hover:border-accent/30 transition-all flex items-center justify-center cursor-pointer"
+              title="GitHub"
+            >
+              <GithubIcon className="w-5 h-5" />
+            </a>
+            <a 
+              href="https://linkedin.com/in/tasfia-tabassum" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-2.5 bg-slate-900 border border-slate-800 rounded-xl text-slate-400 hover:text-accent hover:border-accent/30 transition-all flex items-center justify-center cursor-pointer"
+              title="LinkedIn"
+            >
+              <LinkedinIcon className="w-5 h-5" />
+            </a>
+            <a 
+              href="https://wa.me/8801812326039" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-2.5 bg-slate-900 border border-slate-800 rounded-xl text-slate-400 hover:text-accent hover:border-accent/30 transition-all flex items-center justify-center cursor-pointer"
+              title="WhatsApp"
+            >
+              <WhatsappIcon className="w-5 h-5" />
+            </a>
+          </div>
+          
         </div>
       </footer>
     </main>
